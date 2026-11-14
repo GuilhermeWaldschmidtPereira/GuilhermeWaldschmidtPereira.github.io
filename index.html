@@ -1,0 +1,310 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" data-en-content="Portfolio of Guilherme Waldschmidt Pereira. Software development, data engineering, and applied research." content="Portfólio de Guilherme Waldschmidt Pereira. Desenvolvimento de software, engenharia de dados e pesquisa aplicada.">
+  <meta name="color-scheme" content="light">
+  <title data-en="Guilherme Waldschmidt Pereira | Portfolio">Guilherme Waldschmidt Pereira | Portfólio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --paper: #faf8f3;
+      --ink: #211b28;
+      --muted: #58505e;
+      --line: #dcd5de;
+      --accent: #572e78;
+      --panel: #eee5f4;
+      --display: "Instrument Serif", Georgia, serif;
+      --body: "DM Sans", system-ui, sans-serif;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; color: var(--ink); background: var(--paper); font: 400 1rem/1.6 var(--body); }
+    a { color: inherit; text-underline-offset: .24em; }
+    a:focus-visible { outline: 2px solid var(--accent); outline-offset: 5px; }
+    a:hover { color: var(--accent); }
+    h1, h2, h3, p { margin: 0; }
+    h1, h2 { font-family: var(--display); font-weight: 400; line-height: .98; }
+    h2 { font-size: clamp(3.15rem, 6vw, 5rem); }
+    h3 { line-height: 1.25; }
+    .wrap { width: min(1160px, calc(100% - 96px)); margin-inline: auto; }
+    .skip { position: absolute; top: -6rem; left: 1rem; z-index: 3; padding: .7rem; background: white; }
+    .skip:focus { top: 1rem; }
+    header { border-bottom: 1px solid var(--line); }
+    .bar { min-height: 83px; display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; }
+    .brand { font-weight: 700; text-decoration: none; white-space: nowrap; }
+    .mark { display: inline-grid; place-items: center; width: 34px; height: 34px; margin-right: .5rem; border-radius: 50%; color: white; background: var(--accent); font: 1.15rem var(--display); vertical-align: middle; }
+    nav { display: flex; flex-wrap: wrap; column-gap: clamp(1rem, 2.5vw, 2.5rem); row-gap: .45rem; }
+    nav a { font-size: .88rem; font-weight: 600; text-decoration: none; }
+    nav a:hover { text-decoration: underline; }
+    .language-switch {
+      flex-shrink: 0;
+      min-width: 4.25rem;
+      min-height: 2.5rem;
+      padding: .3rem .65rem;
+      border: 1px solid var(--accent);
+      border-radius: 4px;
+      background: transparent;
+      color: var(--accent);
+      cursor: pointer;
+      font: 700 .83rem var(--body);
+    }
+    .language-switch:hover { background: var(--panel); }
+    .language-switch:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+    header nav { margin-left: auto; }
+    section { scroll-margin-top: 24px; }
+    .hero { display: grid; grid-template-columns: 1.38fr 1fr; align-items: center; gap: clamp(2rem, 6vw, 6rem); padding-block: clamp(4rem, 8vw, 7rem); }
+    .eyebrow { font-size: .76rem; font-weight: 700; text-transform: uppercase; letter-spacing: .12em; color: var(--accent); }
+    h1 { margin-block: .85rem 1.35rem; font-size: clamp(3.35rem, 6.2vw, 6.25rem); letter-spacing: -.037em; }
+    h1 em { display: block; color: var(--accent); }
+    .intro { max-width: 56ch; color: var(--muted); font-size: 1.06rem; }
+    .links { display: flex; flex-wrap: wrap; align-items: center; gap: .9rem 1.3rem; margin-top: 1.7rem; }
+    .button { display: inline-flex; align-items: center; gap: .7rem; background: var(--accent); color: white; padding: .67rem 1.12rem; border-radius: 4px; text-decoration: none; font-weight: 700; }
+    .button:hover { color: white; background: #3c1f56; }
+    .links > a:not(.button) { font-size: .9rem; font-weight: 700; }
+    .monogram {
+      position: relative; isolation: isolate; overflow: hidden; min-height: 310px; aspect-ratio: 1.07;
+      display: grid; place-items: center; color: var(--accent); border-radius: 48% 48% 5px 5px;
+      background: radial-gradient(ellipse at 18% 10%, #faf4ff, transparent 80%), #dbc6ed;
+      border: 1px solid #d8c5e5;
+    }
+    .monogram::before, .monogram::after {
+      content: ""; width: 74%; height: 47%; position: absolute; z-index: -1;
+      border-radius: 50%; border: 1px solid #8f6bab70;
+    }
+    .monogram::before { transform: rotate(-39deg); }
+    .monogram::after { transform: rotate(39deg); }
+    .monogram span { font: italic clamp(6rem, 12vw, 11rem)/1 var(--display); letter-spacing: -.09em; padding-right: .1em; }
+    .section { border-top: 1px solid var(--line); padding-block: clamp(3rem, 6.5vw, 5rem); }
+    .section h2 { margin-bottom: 1.85rem; }
+    .projects { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+    .project { display: flex; flex-direction: column; min-width: 0; padding: clamp(1.25rem, 2.7vw, 2rem); background: #fffdf9; border: 1px solid var(--line); border-radius: 6px; }
+    .project:first-child { background: var(--panel); border-color: #dacbe5; }
+    .project h3 { margin-block: .65rem .8rem; font: 400 2rem/1.04 var(--display); }
+    .project .description { color: var(--muted); font-size: .94rem; padding-bottom: 1rem; }
+    .tech { margin-top: auto; color: var(--accent); font-weight: 700; font-size: .8rem; }
+    .split { display: grid; grid-template-columns: minmax(220px, .8fr) minmax(0, 2fr); gap: clamp(1rem, 5vw, 4rem); }
+    .section-intro { color: var(--muted); max-width: 30ch; }
+    .split h2 { margin-bottom: .7rem; }
+    .entries { margin: 0; padding: 0; list-style: none; border-top: 1px solid var(--line); }
+    .entries li { display: grid; grid-template-columns: 3.3rem minmax(0, 1fr) auto; align-items: start; gap: 1.05rem; padding-block: 1.1rem; border-bottom: 1px solid var(--line); }
+    .entries time { color: var(--accent); font-size: .87rem; font-weight: 700; }
+    .entries h3 { font-size: 1rem; font-weight: 700; }
+    .entries p { margin-top: .25rem; color: var(--muted); font-size: .86rem; }
+    .entries a { font-size: .83rem; color: var(--accent); font-weight: 700; white-space: nowrap; }
+    footer { background: var(--panel); border-top: 1px solid var(--line); }
+    footer .bar { min-height: 100px; }
+    footer p { font-weight: 700; }
+    footer a { font-size: .89rem; }
+    @media (max-width: 900px) {
+      .wrap { width: calc(100% - 52px); }
+      header .bar {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        gap: .75rem;
+        padding-block: .9rem;
+      }
+      header nav { grid-column: 1 / -1; grid-row: 2; margin-left: 0; }
+      .language-switch { grid-column: 2; grid-row: 1; }
+      .hero { gap: 2rem; }
+      .monogram { min-height: 245px; }
+    }
+    @media (max-width: 680px) {
+      .wrap { width: calc(100% - 36px); }
+      .brand { white-space: normal; }
+      .hero, .split { grid-template-columns: 1fr; }
+      .hero { padding-block: 3.4rem; }
+      .monogram { aspect-ratio: 1.7; min-height: 0; border-radius: 6px; }
+      .monogram span { font-size: 6rem; }
+      .projects { grid-template-columns: 1fr; }
+      .entries li { grid-template-columns: 2.5rem minmax(0, 1fr); column-gap: .65rem; row-gap: .35rem; }
+      .entries a { grid-column: 2; width: fit-content; }
+      footer .bar { flex-wrap: wrap; gap: .8rem; min-height: 0; padding-block: 1.5rem; }
+    }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#apresentacao" data-en="Skip to content">Pular para o conteúdo</a>
+  <header>
+    <div class="wrap bar">
+      <a class="brand" href="#apresentacao"><span class="mark" aria-hidden="true">GW</span> Guilherme Waldschmidt</a>
+      <nav aria-label="Menu principal" data-en-label="Main navigation">
+        <a href="#apresentacao" data-en="About">Apresentação</a>
+        <a href="#projetos" data-en="Projects">Projetos</a>
+        <a href="#artigos" data-en="Published articles">Artigos publicados</a>
+        <a href="#registros" data-en="Software registrations">Registros de software</a>
+      </nav>
+      <button class="language-switch" id="language-switch" type="button" lang="en"
+              aria-label="Switch to English" hidden>EN</button>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="hero" id="apresentacao" aria-labelledby="nome">
+      <div>
+        <p class="eyebrow" data-en="Software development · Data engineering">Desenvolvimento de software · Engenharia de dados</p>
+        <h1 id="nome">Guilherme <em>Waldschmidt Pereira</em></h1>
+        <p class="intro" data-en="I build web applications, system integrations, and data pipelines. I hold a bachelor’s degree in Information Systems from UESB, where I also teach statistics. In my master’s program in Computer Science at UFBA, I research how machine learning can be used to geocode addresses.">Desenvolvo aplicações web, integrações e pipelines de dados. Sou bacharel em Sistemas de Informação pela UESB, onde também leciono na área de Estatística. No mestrado em Ciência da Computação na UFBA, pesquiso o uso de aprendizado de máquina na geocodificação de endereços.</p>
+        <div class="links">
+          <a class="button" href="#projetos"><span data-en="View projects">Ver projetos</span> <span aria-hidden="true">↓</span></a>
+          <a href="https://github.com/GuilhermeWaldschmidtPereira">GitHub</a>
+          <a href="https://www.linkedin.com/in/guilherme-waldschmidt-pereira/">LinkedIn</a>
+        </div>
+      </div>
+      <div class="monogram" aria-hidden="true"><span>GW</span></div>
+    </section>
+
+    <section class="section" id="projetos" aria-labelledby="titulo-projetos">
+      <h2 id="titulo-projetos" data-en="Project portfolio">Portfólio de projetos</h2>
+      <div class="projects">
+        <article class="project">
+          <p class="eyebrow" data-en="Master’s research">Pesquisa de mestrado</p>
+          <h3 data-en="Address geocoding">Geocodificação de endereços</h3>
+          <p class="description" data-en="A pipeline that matches addresses to coordinates. My research evaluates embeddings and vector search for record linkage.">Pipeline para associar endereços a coordenadas. A pesquisa avalia o uso de embeddings e busca vetorial na vinculação de registros.</p>
+          <p class="tech">Python · PostgreSQL · LinkTransformer</p>
+        </article>
+        <article class="project">
+          <p class="eyebrow" data-en="Web development">Desenvolvimento web</p>
+          <h3 data-en="Grade portal">Portal de Notas</h3>
+          <p class="description" data-en="A web application for looking up grades from spreadsheets and calculating weighted averages across assessments.">Aplicação web para consulta de notas a partir de planilhas e cálculo das médias ponderadas das avaliações.</p>
+          <p class="tech">PHP · JavaScript · MySQL</p>
+        </article>
+        <article class="project">
+          <p class="eyebrow" data-en="Analysis automation">Automação de análise</p>
+          <h3 data-en="FSS analysis with Flask">Análise de FSS com Flask</h3>
+          <p class="description" data-en="An application for organizing and visualizing frequency-selective surface simulation results, including structure, material, and thickness.">Aplicação para organizar e visualizar resultados de simulações de superfícies seletivas de frequência, com informações sobre estrutura, material e espessura.</p>
+          <p class="tech">Python · Flask</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section split" id="artigos" aria-labelledby="titulo-artigos">
+      <div>
+        <h2 id="titulo-artigos" data-en="Published articles">Artigos publicados</h2>
+        <p class="section-intro" data-en="Academic publications and technical articles.">Publicações acadêmicas e textos técnicos.</p>
+      </div>
+      <ul class="entries">
+        <li>
+          <time datetime="2025">2025</time>
+          <div><h3 data-en="Wi-Fi 7 (802.11be): An Advance in High-Performance Wireless Networking">Wi-Fi 7 (802.11be): Um Avanço na Tecnologia de Redes Sem Fio de Alto Desempenho</h3><p data-en="Revista Científica Foz · Co-authored article">Revista Científica Foz · Artigo em coautoria</p></div>
+          <a href="https://revista.ivc.br/index.php/revistafoz/article/view/351" aria-label="Ler o artigo sobre Wi-Fi 7" data-en-label="Read the article about Wi-Fi 7 (Portuguese)" data-en="Read article">Ler artigo</a>
+        </li>
+        <li>
+          <time datetime="2022">2022</time>
+          <div><h3 data-en="Optimizing FSS Analysis with Flask">Otimizando análise de FSS com Flask</h3><p data-en="LinkedIn · Technical article">LinkedIn · Artigo técnico</p></div>
+          <a href="https://pt.linkedin.com/pulse/otimizando-an%C3%A1lise-de-fss-com-flask-guilherme-waldschmidt-pereira" aria-label="Ler o artigo sobre análise de FSS com Flask" data-en-label="Read the article about FSS analysis with Flask (Portuguese)" data-en="Read article">Ler artigo</a>
+        </li>
+        <li>
+          <time datetime="2020">2020</time>
+          <div><h3 lang="en">A novel Baravelle Spiral Multilayer Frequency Selective Surface for WLAN Applications</h3><p data-en="IEEE AP-S/URSI · Co-authored paper">IEEE AP-S/URSI · Artigo em coautoria</p></div>
+          <a href="https://doi.org/10.1109/IEEECONF35879.2020.9329650" aria-label="Consultar o DOI do artigo sobre a espiral de Baravelle" data-en-label="View the DOI for the Baravelle spiral paper" data-en="View DOI">Ver DOI</a>
+        </li>
+      </ul>
+    </section>
+
+    <section class="section split" id="registros" aria-labelledby="titulo-registros">
+      <div>
+        <h2 id="titulo-registros" data-en="Software registrations">Registros de software</h2>
+        <p class="section-intro" data-en="Software I co-created, with registrations published by Brazil’s National Institute of Industrial Property (INPI).">Programas de computador em que consto como cocriador, com registros publicados pelo INPI.</p>
+      </div>
+      <ul class="entries">
+        <li>
+          <time datetime="2025">2025</time>
+          <div><h3 lang="en">Taxonomy-Based Dielectric Ranking System (TaDiRS)</h3><p>BR 51 2025 005028-3 · RPI 2858</p></div>
+          <a href="https://revistas.inpi.gov.br/pdf/Programa_de_computador2858.pdf#page=33" aria-label="Consultar a publicação do registro TaDiRS no INPI" data-en-label="View the TaDiRS registration in the INPI bulletin" data-en="View INPI bulletin">Ver RPI</a>
+        </li>
+        <li>
+          <time datetime="2025">2025</time>
+          <div><h3 lang="en">Python Application using SAW MCDM for Microstrip Antennas Synthesis</h3><p>BR 51 2025 003479-2 · RPI 2847</p></div>
+          <a href="https://revistas.inpi.gov.br/pdf/Programa_de_computador2847.pdf#page=41" aria-label="Consultar a publicação do registro sobre síntese de antenas no INPI" data-en-label="View the antenna synthesis registration in the INPI bulletin" data-en="View INPI bulletin">Ver RPI</a>
+        </li>
+        <li>
+          <time datetime="2025">2025</time>
+          <div><h3 lang="en">AHP-Based Decision Support Tool for Ranking Textile Dielectrics in Microwave Engineering</h3><p>BR 51 2025 002401-0 · RPI 2840</p></div>
+          <a href="https://revistas.inpi.gov.br/pdf/Programa_de_computador2840.pdf#page=25" aria-label="Consultar a publicação do registro AHP no INPI" data-en-label="View the AHP tool registration in the INPI bulletin" data-en="View INPI bulletin">Ver RPI</a>
+        </li>
+        <li>
+          <time datetime="2024">2024</time>
+          <div><h3 lang="en">Python-Julia Integrated Script to Produce Multi-Spiral Stripline Element for Frequency Selective Surfaces and Microstrip Antennas</h3><p>BR 51 2024 004596-1 · RPI 2813</p></div>
+          <a href="https://revistas.inpi.gov.br/pdf/Programa_de_computador2813.pdf#page=24" aria-label="Consultar a publicação do registro sobre elementos multiespirais no INPI" data-en-label="View the multi-spiral element registration in the INPI bulletin" data-en="View INPI bulletin">Ver RPI</a>
+        </li>
+        <li>
+          <time datetime="2024">2024</time>
+          <div><h3 lang="en">A Python Script to Produce and Visualize Electromagnetic Frequency Responses for Frequency Selective Surface Structures</h3><p>BR 51 2024 004196-6 · RPI 2810</p></div>
+          <a href="https://revistas.inpi.gov.br/pdf/Programa_de_computador2810.pdf#page=20" aria-label="Consultar a publicação do registro sobre respostas eletromagnéticas no INPI" data-en-label="View the electromagnetic response registration in the INPI bulletin" data-en="View INPI bulletin">Ver RPI</a>
+        </li>
+        <li>
+          <time datetime="2024">2024</time>
+          <div><h3 lang="en">VBS Python Script to Generate Gear Curve Element in FSS Structure for Electromagnetics Suites</h3><p>BR 51 2024 004192-3 · RPI 2810</p></div>
+          <a href="https://revistas.inpi.gov.br/pdf/Programa_de_computador2810.pdf#page=19" aria-label="Consultar a publicação do registro VBS Python Script no INPI" data-en-label="View the VBS Python Script registration in the INPI bulletin" data-en="View INPI bulletin">Ver RPI</a>
+        </li>
+      </ul>
+    </section>
+  </main>
+  <footer>
+    <div class="wrap bar">
+      <p>Guilherme Waldschmidt Pereira</p>
+      <a href="#apresentacao" data-en="Back to top ↑">Voltar ao início ↑</a>
+    </div>
+  </footer>
+  <script>
+    const languageSwitch = document.getElementById('language-switch');
+    const languageStorageKey = 'portfolio-language';
+    const translations = [];
+
+    for (const [selector, dataKey, attribute] of [
+      ['[data-en]', 'en', null],
+      ['[data-en-label]', 'enLabel', 'aria-label'],
+      ['[data-en-content]', 'enContent', 'content'],
+    ]) {
+      for (const element of document.querySelectorAll(selector)) {
+        translations.push({
+          element,
+          attribute,
+          pt: attribute ? element.getAttribute(attribute) : element.textContent,
+          en: element.dataset[dataKey],
+        });
+      }
+    }
+
+    function setLanguage(language) {
+      const isEnglish = language === 'en';
+      document.documentElement.lang = language;
+      for (const { element, attribute, pt, en } of translations) {
+        const value = isEnglish ? en : pt;
+        if (attribute) {
+          element.setAttribute(attribute, value);
+        } else {
+          element.textContent = value;
+        }
+      }
+      languageSwitch.lang = isEnglish ? 'pt-BR' : 'en';
+      languageSwitch.textContent = isEnglish ? 'PT-BR' : 'EN';
+      languageSwitch.setAttribute('aria-label', isEnglish ? 'Mudar para português do Brasil' : 'Switch to English');
+    }
+
+    let savedLanguage;
+    try {
+      savedLanguage = localStorage.getItem(languageStorageKey);
+    } catch {
+      // Language switching still works when storage is unavailable.
+    }
+
+    setLanguage(savedLanguage === 'en' ? 'en' : 'pt-BR');
+    languageSwitch.addEventListener('click', () => {
+      const language = document.documentElement.lang === 'en' ? 'pt-BR' : 'en';
+      setLanguage(language);
+      try {
+        localStorage.setItem(languageStorageKey, language);
+      } catch {
+        // Keep the current language even when it cannot be saved.
+      }
+    });
+    languageSwitch.hidden = false;
+  </script>
+</body>
+</html>
